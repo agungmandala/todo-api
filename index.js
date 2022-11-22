@@ -13,6 +13,7 @@ app.get('/', (req, res) => {
 })
 
 app.use('/activity-groups', routes.activity)
+app.use('/todo-items', routes.todo)
 
 app.listen(port, () => {
 	console.log('Listening on port ', port)
