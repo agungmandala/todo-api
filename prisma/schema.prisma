@@ -17,4 +17,17 @@ model Activity {
   created_at  DateTime @default(now())
   updated_at  DateTime @updatedAt
   deleted_at  DateTime? 
+  todo        Todo[]
+}
+
+model Todo {
+  id                  Int         @id   @default(autoincrement())
+  activity_group_id   Int
+  activity            Activity?    @relation(fields: [activity_group_id], references: [id])
+  title               String
+  is_active           Int
+  priority            String
+  created_at          DateTime    @default(now())
+  updated_at          DateTime    @updatedAt
+  deleted_at          DateTime?
 }
